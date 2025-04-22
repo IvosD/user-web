@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Osobní stránka - Nabídka práce</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigace -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Moje Pracovní Stránka</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#uvod">Úvod</a></li>
+          <li class="nav-item"><a class="nav-link" href="#nabidka">Nabídka práce</a></li>
+          <li class="nav-item"><a class="nav-link" href="#omne">O mně</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Úvod -->
+  <section id="uvod" class="py-5 text-center bg-light">
+    <div class="container">
+      <h1 class="display-5">Vítejte na mé stránce!</h1>
+      <p class="lead">Hledáte spolehlivého kolegu nebo profesionála? Jste na správném místě.</p>
+    </div>
+  </section>
+
+  <!-- Nabídka práce -->
+  <section id="nabidka" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Aktuální nabídky práce</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Frontend Developer</h5>
+              <p class="card-text">HTML, CSS, JavaScript, React</p>
+              <a href="#kontakt" class="btn btn-primary">Mám zájem</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Grafik na volné noze</h5>
+              <p class="card-text">Adobe, Figma, Canva</p>
+              <a href="#kontakt" class="btn btn-primary">Mám zájem</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Copywriter</h5>
+              <p class="card-text">Tvorba textů, blogy, popisy produktů</p>
+              <a href="#kontakt" class="btn btn-primary">Mám zájem</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O mně -->
+  <section id="omne" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">O mně</h2>
+      <p class="text-center">Jsem freelancer se zkušenostmi v oblasti vývoje webu, grafiky a psaní obsahu. Nabízím spolehlivou spolupráci a kvalitní výstupy.</p>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Kontaktujte mě</h2>
+
+      <form action="https://formsubmit.co/ivo.dostal@volny.cz" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Jméno</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Zpráva</label>
+          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Odeslat</button>
+      </form> 
+
+
+
+      <!-- <form action="https://formsubmit.co/tvuj@email.cz" method="POST">
+        <input type="text" name="name" required>
+        <input type="email" name="email" required>
+        <textarea name="message" required></textarea>
+        <button type="submit">Odeslat</button>
+      </form> -->
+      
+
+
+      <!-- <form action="https://formspree.io/f/xdodzgrw" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Jméno</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Zpráva</label>
+          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Odeslat</button>
+      </form>    -->
+
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    &copy; 2025 Moje Pracovní Stránka
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
