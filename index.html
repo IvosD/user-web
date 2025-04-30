@@ -3,112 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Osobní stránka - Nabídka práce</title>
+  <title>Josef Novák – Strojírenství a Programování</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero {
+      background: linear-gradient(to right, #007BFF, #00BFFF);
+      color: white;
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+    .section {
+      padding: 4rem 0;
+    }
+    .icon {
+      font-size: 3rem;
+      color: #007BFF;
+    }
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigace -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Moje Pracovní Stránka</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#uvod">Úvod</a></li>
-          <li class="nav-item"><a class="nav-link" href="#nabidka">Nabídka práce</a></li>
-          <li class="nav-item"><a class="nav-link" href="#omne">O mně</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Úvod -->
-  <section id="uvod" class="py-5 text-center bg-light">
-    <div class="container">
-      <h1 class="display-5">Vítejte na mé stránce!</h1>
-      <p class="lead">Hledáte spolehlivého kolegu nebo profesionála? Jste na správném místě.</p>
+<!-- Navigace -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Josef Novák</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">O mně</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Služby</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+      </ul>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <!-- Nabídka práce -->
-  <section id="nabidka" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Aktuální nabídky práce</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Frontend Developer</h5>
-              <p class="card-text">HTML, CSS, JavaScript, React</p>
-              <a href="#kontakt" class="btn btn-primary">Mám zájem</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Grafik na volné noze</h5>
-              <p class="card-text">Adobe, Figma, Canva</p>
-              <a href="#kontakt" class="btn btn-primary">Mám zájem</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Copywriter</h5>
-              <p class="card-text">Tvorba textů, blogy, popisy produktů</p>
-              <a href="#kontakt" class="btn btn-primary">Mám zájem</a>
-            </div>
+<!-- Hero sekce -->
+<section class="hero">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Josef Novák</h1>
+    <p class="lead">Dlouholeté zkušeností v oblasti strojírenství, CAD/CAM systémů, programování NC strojů <br>a znalosti s programováním v .NET</p>
+    
+    <a href="#contact" class="btn btn-light btn-lg mt-4">Kontaktujte mě</a>
+  </div>
+</section>
+
+<!-- O mně -->
+<section id="about" class="section">
+  <div class="container text-center">
+    <img src="avatar.jpg" alt="Josef Novák" class="avatar">
+    <h2 class="mt-4">O mně</h2>
+    <p>Jsem zkušený inženýr se specializací na strojírenství, CAD/CAM systémy a programování NC strojů, mám zkušenosti s programováním v .NET (C#, VB), SQL, HTML a ovládám základní angličtinu. Nabízím zralost, spolehlivost a hluboké odborné znalosti.</p>
+  </div>
+</section>
+
+<!-- Služby -->
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="text-center mb-5">Odborné dovednosti</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 text-center">
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="mb-3 icon">💻</div>
+            <h5 class="card-title">CAD/CAM Systémy</h5>
+            <p class="card-text">Návrhy a úpravy projektu dle požadavku zákazníka.</p>
+            <a href="cad-cam.html" class="btn btn-outline-primary">Více informací</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- O mně -->
-  <section id="omne" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">O mně</h2>
-      <p class="text-center">Jsem freelancer se zkušenostmi v oblasti vývoje webu, grafiky a psaní obsahu. Nabízím spolehlivou spolupráci a kvalitní výstupy.</p>
-    </div>
-  </section>
-
-  <!-- Kontakt -->
-  <section id="kontakt" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Kontaktujte mě</h2>
-
-
-
-      <form action="https://getform.io/f/bllykvgb" method="POST">
-        <div class="mb-3">
-          <label for="name" class="form-label">Jméno</label>
-          <input type="text" class="form-control" id="name" name="name" required>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="mb-3 icon">📊</div>
+            <h5 class="card-title">.NET Programování</h5>
+            <p class="card-text">C#, VB, SQL, HTML – vývoj aplikací pro zákazníka.</p>
+            <a href="dotnet.html" class="btn btn-outline-primary">Více informací</a>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body"> 
+            <div class="mb-3 icon">🖥️</div>
+            <h5 class="card-title">Postprocesory</h5>
+            <p class="card-text">Úpravy a vývoj postprocesorů pro CAM systémy.</p>
+            <a href="postprocesor.html" class="btn btn-outline-primary">Více informací</a>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Zpráva</label>
-          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="mb-3 icon">⚙️</div>
+            <h5 class="card-title">Programování CNC strojů</h5>
+            <p class="card-text">Zpracování zakázek</p>
+            <a href="nc-machines.html" class="btn btn-outline-primary">Více informací</a>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Odeslat</button>
-      </form>
-
-
+      </div>    
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="bg-dark text-white text-center py-3">
-    &copy; 2025 Moje Pracovní Stránka
-  </footer>
+<!-- Kontakt -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="text-center mb-4">Kontaktujte mě</h2>
+    <form action="https://getform.io/f/your-form-endpoint" method="POST" class="mx-auto" style="max-width: 500px;">
+      <div class="mb-3">
+        <label for="name" class="form-label">Jméno</label>
+        <input type="text" class="form-control" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Zpráva</label>
+        <textarea class="form-control" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Odeslat</button>
+    </form>
+  </div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
