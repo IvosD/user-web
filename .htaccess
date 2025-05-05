@@ -1,0 +1,27 @@
+# Zapnutí mod_rewrite
+RewriteEngine On
+
+# Přesměrování HTTP → HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+# Přesměrování bez www → s www (volitelné)
+RewriteCond %{HTTP_HOST} ^ivodostal\.cz [NC]
+RewriteRule ^(.*)$ https://www.ivodostal.cz/$1 [L,R=301]
+
+# Zákaz zobrazení obsahu složek (pokud chybí index.html/php)
+Options -Indexes
+
+# Nastavení cache pro statické soubory (obrázky, CSS, JS)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/x-javascript "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
