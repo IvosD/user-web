@@ -145,8 +145,8 @@
 <section id="contact" class="section">
   <div class="container">
     <h2 class="text-center mb-4">Kontaktujte mě</h2>
-    <!-- <form action="https://getform.io/f/your-form-endpoint" method="POST" class="mx-auto" style="max-width: 500px;"> -->
-      <form action="send.php" method="POST"> 
+
+    <!-- <form action="send.php" method="POST"> 
       <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
         <label for="name" class="form-label">Jméno</label>
         <input type="text" class="form-control" name="name" required>
@@ -160,8 +160,65 @@
         <textarea class="form-control" name="message" rows="5" required></textarea>
         <button type="submit" class="btn btn-primary mt-4">Odeslat</button>
       </div>
-      
+    </form> -->
+
+    <form id="contactForm" method="POST">
+      <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
+        <label for="name" class="form-label">Jméno</label>
+        <input type="text" class="form-control" name="name" required>
+      </div>
+    
+      <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" name="email" required>
+      </div>
+    
+      <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
+        <label for="message" class="form-label">Zpráva</label>
+        <textarea class="form-control" name="message" rows="5" required></textarea>
+      </div>
+    
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-3">Odeslat</button>
+      </div>
+    
+      <div id="formStatus" class="mt-4 text-center"></div>
     </form>
+    
+    <!-- JavaScript pro AJAX odeslání -->
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // Zamezí přesměrování
+      
+        const form = e.target;
+        const formData = new FormData(form);
+        const statusDiv = document.getElementById("formStatus");
+      
+        fetch("send.php", {
+          method: "POST",
+          body: formData
+        })
+        .then(response => response.text())
+        .then(result => {
+          statusDiv.innerHTML = `<div class="alert alert-success">Zpráva byla úspěšně odeslána.</div>`;
+          form.reset(); // Vymaže formulář
+      
+          setTimeout(() => {
+            statusDiv.innerHTML = "";
+          }, 5000);
+        })
+        .catch(error => {
+          statusDiv.innerHTML = `<div class="alert alert-danger">Odeslání se nezdařilo. Zkuste to prosím znovu.</div>`;
+      
+          setTimeout(() => {
+            statusDiv.innerHTML = "";
+          }, 5000);
+        });
+      });
+      </script>
+      
+    
+
   </div>
 </section>
 
