@@ -146,22 +146,6 @@
   <div class="container">
     <h2 class="text-center mb-4">Kontaktujte mě</h2>
 
-    <!-- <form action="send.php" method="POST"> 
-      <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
-        <label for="name" class="form-label">Jméno</label>
-        <input type="text" class="form-control" name="name" required>
-      </div>
-      <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
-        <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" name="email" required>
-      </div>
-      <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
-        <label for="message" class="form-label">Zpráva</label>
-        <textarea class="form-control" name="message" rows="5" required></textarea>
-        <button type="submit" class="btn btn-primary mt-4">Odeslat</button>
-      </div>
-    </form> -->
-
     <form id="contactForm" method="POST">
       <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
         <label for="name" class="form-label">Jméno</label>
@@ -170,12 +154,13 @@
     
       <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
         <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" name="email" required>
+        <input type="email" class="form-control" name="email" id="email" required>
+        <div class="invalid-feedback">Zadejte platnou e-mailovou adresu.</div>
       </div>
     
       <div class="mb-3" style="max-width: 450px; margin: 0 auto;">
         <label for="message" class="form-label">Zpráva</label>
-        <textarea class="form-control" name="message" rows="5" required></textarea>
+        <textarea class="form-control" name="message" rows="5" required></textarea>       
       </div>
     
       <div class="text-center">
@@ -186,36 +171,53 @@
     </form>
     
     <!-- JavaScript pro AJAX odeslání -->
-    <script>
-      document.getElementById("contactForm").addEventListener("submit", function (e) {
-        e.preventDefault(); // Zamezí přesměrování
-      
-        const form = e.target;
-        const formData = new FormData(form);
-        const statusDiv = document.getElementById("formStatus");
-      
-        fetch("send.php", {
-          method: "POST",
-          body: formData
-        })
-        .then(response => response.text())
-        .then(result => {
-          statusDiv.innerHTML = `<div class="alert alert-success">Zpráva byla úspěšně odeslána.</div>`;
-          form.reset(); // Vymaže formulář
-      
-          setTimeout(() => {
-            statusDiv.innerHTML = "";
-          }, 5000);
-        })
-        .catch(error => {
-          statusDiv.innerHTML = `<div class="alert alert-danger">Odeslání se nezdařilo. Zkuste to prosím znovu.</div>`;
-      
-          setTimeout(() => {
-            statusDiv.innerHTML = "";
-          }, 5000);
-        });
-      });
-      </script>
+   <script>
+  const emailInput = document.getElementById("email");
+  const form = document.getElementById("contactForm");
+  const statusDiv = document.getElementById("formStatus");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Poslech události submit
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const email = emailInput.value.trim();
+
+    if (!emailRegex.test(email)) {
+      emailInput.classList.add("is-invalid");
+      return;
+    } else {
+      emailInput.classList.remove("is-invalid");
+    }
+
+    fetch("send.php", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+      statusDiv.innerHTML = `<div class="alert alert-success">Zpráva byla úspěšně odeslána.</div>`;
+      form.reset();
+      emailInput.classList.remove("is-invalid");
+      setTimeout(() => statusDiv.innerHTML = "", 5000);
+    })
+    .catch(error => {
+      statusDiv.innerHTML = `<div class="alert alert-danger">Odeslání se nezdařilo. Zkuste to prosím znovu.</div>`;
+      setTimeout(() => statusDiv.innerHTML = "", 5000);
+    });
+  });
+
+  // Poslech změn v e-mailu – odstraní chybu při opravě
+  emailInput.addEventListener("input", function () {
+    const email = emailInput.value.trim();
+    if (emailRegex.test(email)) {
+      emailInput.classList.remove("is-invalid");
+    }
+  });
+</script>
+
       
     
 
